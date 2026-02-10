@@ -16,7 +16,7 @@ Mern stack is a technology used to creste a bth static and dynamic websites.
 
 **Database:** MongoDb
 
-**Frame:** React
+**Framework:** React
 
 ## Day Wise Cotent
 
@@ -35,3 +35,4 @@ Day6: Advanced JAvascript
 Day7: React Basics
 
 Day8: React State & Hooks
+
