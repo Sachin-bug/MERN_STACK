@@ -1,0 +1,130 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+body{
+    background-color:rgb(234, 229, 229);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Container */
+.header-container {
+    background-color: #d3cece;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;   /* Name top, paragraph below */
+    align-items: flex-start;  /* Move to left */
+}
+
+/* Name */
+.header-container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph */
+.header-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;              /* Make menu horizontal */
+    gap: 20px;                  /* Space between links */
+}
+
+/* Navigation Links */
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+
+
+section{
+    padding: 40px;
+    margin: 20px;
+    background-color: cadetblue;
+    color:blue;
+     border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+.skill-container{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.skill-box{
+    background-color: coral;
+    padding: 10px; 
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    transition:0.3s ;
+}
+.skill-box:hover{
+    background-color: darkorange;
+    color: rgb(0, 0, 0);
+    transform: scale(1.05);
+}
+.skills-container {
+    display: flex;
+    flex-direction: row;   
+    gap: 20px;              
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th,td{
+    border: 1px; #ccc;
+    padding: 10px;
+    text-align: center;
+}
+th{
+    background: #1e293b;
+    color: white;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+input,select{
+    padding: 8px;
+    border-radius: 5px;
+}
+input[type="submit"]{
+   background: #1e293b;
+   color: white;
+   cursor: pointer;
+   transition: 0.3s;
+}
+input[type="submit"]:hover{
+   background-color: #38bdf8;
+}
+footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
