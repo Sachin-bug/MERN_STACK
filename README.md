@@ -6,7 +6,7 @@ Iam Sachin Raj S from class of **3rd year CSE** today we've started to learn abo
 
 ## Objective
 
-Mern stack is a technology used to creste a bth static and dynamic websites.
+Mern stack is a technology used to create both static and dynamic websites.
 
 ## Stack Overflow
 
@@ -35,4 +35,5 @@ Day6: Advanced JAvascript
 Day7: React Basics
 
 Day8: React State & Hooks
+
 
