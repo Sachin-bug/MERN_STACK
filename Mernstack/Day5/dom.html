@@ -207,21 +207,141 @@ padding:10px 20px; border:none; border-radius:6px; cursor:pointer;">
     </div>
 
     <script>
-        // Select elements 
-        const noteform = document.getElementById("note-form");
-        const noteinput = document.getElementById("note-input");
-        const notelist = document.getElementById("note-list");
-        const
+
+        const noteForm = document.getElementById("note-form");
+        const noteInput = document.getElementById("note-input");
+        const notesList = document.getElementById("notes-list");
+        const searchInput = document.getElementById("search");
+        const themeToggle = document.getElementById("theme-toggle");
+        const clearCompletedBtn = document.getElementById("clear-completed");
+        const modal = document.getElementById("modal");
+        const modalYes = document.getElementById("modal-yes");
+        const modalNo = document.getElementById("modal-no");
+
         
 
-        // Add note function
-        // Event delegation on #notes-list for complete/delete/color/dblclick
-        // Drag & drop logic
-        // Live search
-        // Theme toggle
-        // Modal logic
+        function createNote(text) {
+            const li = document.createElement("li");
+            li.className = "note";
+            li.draggable = true;
+
+            li.innerHTML = `
+        <span class="text">${text}</span>
+        <div class="actions">
+            <input type="color" class="color-picker" />
+            <button class="btn btn-complete">Complete</button>
+            <button class="btn btn-delete">Delete</button>
+        </div>
+    `;
+
+            notesList.appendChild(li);
+        }
+
+        noteForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const text = noteInput.value.trim();
+            if (!text) return;
+
+            createNote(text);
+            noteInput.value = "";
+        });
+
+
+        notesList.addEventListener("click", (e) => {
+            const note = e.target.closest(".note");
+            if (!note) return;
+
+            if (e.target.classList.contains("btn-delete")) {
+                note.remove();
+            }
+
+            if (e.target.classList.contains("btn-complete")) {
+                note.classList.toggle("completed");
+            }
+        });
+
+
+        let draggedItem = null;
+
+        notesList.addEventListener("dragstart", (e) => {
+            if (e.target.classList.contains("note")) {
+                draggedItem = e.target;
+                e.target.classList.add("dragging");
+            }
+        });
+
+        notesList.addEventListener("dragend", (e) => {
+            if (e.target.classList.contains("note")) {
+                e.target.classList.remove("dragging");
+            }
+        });
+
+        notesList.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(notesList, e.clientY);
+            if (afterElement == null) {
+                notesList.appendChild(draggedItem);
+            } else {
+                notesList.insertBefore(draggedItem, afterElement);
+            }
+        });
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll(".note:not(.dragging)")];
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+
+        searchInput.addEventListener("input", () => {
+            const searchText = searchInput.value.toLowerCase();
+            const notes = document.querySelectorAll(".note");
+
+            notes.forEach(note => {
+                const text = note.querySelector(".text").textContent.toLowerCase();
+                note.style.display = text.includes(searchText) ? "flex" : "none";
+            });
+        });
+
+
+        themeToggle.addEventListener("click", () => {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute("data-theme");
+
+            if (currentTheme === "light") {
+                html.setAttribute("data-theme", "dark");
+                themeToggle.textContent = "Light Mode";
+            } else {
+                html.setAttribute("data-theme", "light");
+                themeToggle.textContent = "Dark Mode";
+            }
+        });
+
+
+        clearCompletedBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+
+        modalNo.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        modalYes.addEventListener("click", () => {
+            document.querySelectorAll(".note.completed").forEach(note => note.remove());
+            modal.style.display = "none";
+        });
+
     </script>
 </body>
 
 
 </html>
+
