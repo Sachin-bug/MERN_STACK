@@ -1,0 +1,186 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #1e1e2f, #0f0f15);
+  color: white;
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #000000, #111);
+  padding: 30px 20px;
+  height: 100vh;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  color: #1DB954;
+  margin-bottom: 40px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #bbb;
+  font-size: 16px;
+  transition: 0.3s ease;
+  padding: 8px 0;
+}
+
+.menu-item:hover {
+  color: #1DB954;
+  transform: translateX(8px);
+}
+
+/* MAIN CONTENT */
+.main {
+  margin-left: 240px;
+  padding: 40px;
+  flex: 1;
+  min-height: 100vh;
+}
+
+/* HEADINGS */
+.heading {
+  font-size: 32px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* PODCAST CARD */
+.card {
+  background: rgba(30, 30, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px;
+  transition: 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #aaa;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(29, 185, 84, 0.4);
+}
+
+/* UPLOAD PAGE */
+.upload-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.upload-form input,
+.upload-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #222;
+  color: white;
+}
+
+.upload-form textarea {
+  min-height: 100px;
+}
+
+.upload-form button {
+  background: #1DB954;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-form button:hover {
+  background: #17a74a;
+  transform: scale(1.05);
+}
+
+/* PLAYER */
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 240px;
+  width: calc(100% - 240px);
+  background: #181818;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+}
+
+.player img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.player audio {
+  width: 400px;
+}
+
+/* PREMIUM PAGE STYLE */
+ul {
+  color: #bbb;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1DB954;
+  border-radius: 10px;
+}
